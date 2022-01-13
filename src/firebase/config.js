@@ -1,6 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-import {getFirestore} from 'firebase/firestore'
+import firebase from 'firebase/compat/app'
+import "firebase/compat/firestore"
+import "firebase/compat/storage"
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyB8Tp9ablvjYvlP0UrJwuyWLU5Vp3R5_fY",
@@ -13,10 +14,10 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const projectStorage = getStorage(firebaseApp);
+firebase.initializeApp(firebaseConfig);
+const projectStorage = firebase.storage()
 
-const projectFirestore = getFirestore(firebaseApp);
+const projectFirestore = firebase.firestore();
 
 // const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 export { projectStorage, projectFirestore };
